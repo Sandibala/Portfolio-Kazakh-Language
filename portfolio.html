@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefefe;
+            overflow-x: hidden;
+        }
+
+        .gradient-bg {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 105, 180, 0.2);
+            filter: blur(100px);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .gradient-top-left {
+            top: -50px;
+            left: -50px;
+        }
+
+        .gradient-top-right {
+            top: 0;
+            right: -50px;
+            background: rgba(255, 105, 180, 0.3);
+        }
+
+        .gradient-about-left {
+            top: 250px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+        }
+        
+        .gradient-about-circle {
+            background-image: linear-gradient(to bottom right, #ffb6c1, #e6a8d1);
+        }
+
+        .gradient-work-top-right {
+            top: 100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+        }
+
+        .nav-link.active {
+            font-weight: 600;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #f1e4f4;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            @apply px-6 py-3 rounded-full text-base font-semibold transition-all duration-300;
+        }
+
+        .btn-primary {
+            @apply bg-pink-300 text-white hover:bg-pink-400;
+        }
+
+        .btn-secondary {
+            @apply border-2 border-pink-300 text-pink-300 hover:bg-pink-50;
+        }
+        
+        .tag {
+            @apply px-3 py-1 text-sm rounded-full bg-gray-100 text-gray-600;
+        }
+
+        .social-link {
+            @apply flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-pink-50 text-gray-600 hover:text-pink-400 transition-colors;
+        }
+
+        /* New styles for fade-in effect */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+    <div class="gradient-bg gradient-top-left"></div>
+    <div class="gradient-bg gradient-top-right"></div>
+    <div class="gradient-bg gradient-about-left"></div>
+    <div class="gradient-bg gradient-work-top-right"></div>
+
+    <!-- Header -->
+    <header class="p-6 md:px-12 flex justify-between items-center relative z-10">
+        <a href="#home" class="text-xl font-bold text-gray-800">Портфолио</a>
+        <nav>
+            <ul class="flex space-x-6 text-gray-600">
+                <li><a href="#home" class="nav-link">Басты бет</a></li>
+                <li><a href="#about" class="nav-link">Мен туралы</a></li>
+                <li><a href="#work" class="nav-link">Жұмыстар</a></li>
+                <li><a href="#photos" class="nav-link">Фотосуреттер</a></li>
+                <li><a href="#contact" class="nav-link">Байланыс</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="relative z-0">
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center p-6 md:p-12">
+            <div class="relative w-12 h-12 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#ffb6c1" viewBox="0 0 24 24" stroke="none" class="w-full h-full animate-spin">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    <path d="M12 10a2 2 0 11-4 0 2 2 0 014 0zM12 14a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 110-4 2 2 0 010 4zM8 12a2 2 0 110-4 2 2 0 010 4z"/>
+                </svg>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-4">
+                Сәлеметсіз бе, мен <span class="text-pink-400">Сәндібала</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-8">
+                Narxoz Университетінің 3-курс студенті, Цифрлық Инженер мамандығында білім алудамын. Мен әдемі, функционалды цифрлық тәжірибелер жасауға құмармын.
+            </p>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                <a href="#work" class="btn btn-primary">Менің жұмысымды көру</a>
+                <a href="#" class="btn btn-secondary">Толығырақ</a>
+            </div>
+            <a href="#about" class="mt-20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-400 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="fade-in-section min-h-screen p-6 md:p-12 pt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-pink-400 mb-2">Мен туралы</h2>
+                <p class="text-lg text-gray-600">Маңызды цифрлық тәжірибелер жасауға құмар</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center justify-center space-y-12 lg:space-y-0 lg:space-x-12">
+                <div class="relative flex-shrink-0 w-80 h-80">
+                    <div class="w-full h-full rounded-full gradient-about-circle"></div>
+                    <div class="absolute inset-0 flex items-center justify-center p-8">
+                        <img src="photosS/Sandu10.jpg" alt="Сіздің фотоңыз" class="w-full h-full rounded-full object-cover shadow-lg">
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-8 max-w-xl">
+                    <div class="card p-6 rounded-lg">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                            <h3 class="text-lg font-semibold text-gray-800">Менің тарихым</h3>
+                        </div>
+                        <p class="text-gray-600">
+                           Мен — Әмзе Сәндібала, 2006 жылдың 13 қаңтарында Түркістан облысы, Жетісай қаласында дүниеге келдім.
+                        </p>
+                    </div>
+
+                    <div class="card p-6 rounded-lg">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 10.5h-10m12 0h-2m-12 4h10m2 0h-2m-8 4h10m-2 0h-2M18 10a2 2 0 11-4 0 2 2 0 014 0zM18 14a2 2 0 11-4 0 2 2 0 014 0zM18 18a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <h3 class="text-lg font-semibold text-gray-800">Не істеймін</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-4 text-gray-600">
+                            <div class="flex items-center space-x-1">
+                                <span class="text-sm">💻</span>
+                                <span>Narxoz Университетінің Цифрлық Технологиялар факультетінің Цифрлық Инженер мамандығының 3-курс студентімін.</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <span class="text-sm">🎨</span>
+                                <span>Менің хоббиім — кітап оқу, сериалдар көру, подкасттар тыңдау, ән айту және түрлі тағамдар мен тәттілер дайындау.</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <span class="text-sm">🌟</span>
+                                <span>– Мақсатшыл, ізденімпаз, жауапты.
+– Шығармашылыққа жақын, жаңа идеяларға ашық.
+– Позитивті ойлайтын әрі адамдармен тез тіл табысатын.</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <span class="text-sm">✨</span>
+                                <span>Миссиям: Код пен шығармашылықты біріктіріп, пайдалы әрі эстетикалық жобалар жасау.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="fade-in-section min-h-screen p-6 md:p-12 pt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-pink-400 mb-2">Менің жұмыстарым</h2>
+                <p class="text-lg text-gray-600">Мақтаныш ететін жобалар топтамасы</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- Project Card 1: E-commerce Platform -->
+                <div class="card w-full lg:w-1/3 p-4 rounded-lg">
+                    <img src="photosS/We need a fun loving logo for a baby gift website _ Logo design contest.jpeg" alt="E-commerce Platform" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">BabyGrown</h3>
+                    <p class="text-gray-600 mb-4">Ата-аналарға арналған заманауи платформа, мұнда нянь, педиатр, мектеп және балабақша сияқты мамандар мен ұйымдарды табуға болады. Жоба ыңғайлы интерфейспен, іздеу және фильтрлеу мүмкіндіктерімен ерекшеленеді.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Stack: Node.js</span>
+                        <span class="tag">Express</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Creative Agency Website -->
+                <div class="card w-full lg:w-1/3 p-4 rounded-lg">
+                    <img src="photosS/Logo, logotype, sign_ Horizon.jpeg" alt="Creative Agency Website" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">🏔️ EcoNomad</h3>
+                    <p class="text-gray-600 mb-4">Қазақстанға арналған саяхат агенттігі веб-сайты. Пайдаланушылар елдің түрлі аймақтары, мәдениеті мен көрікті жерлері туралы ақпарат алып, ыңғайлы әрі заманауи интерфейстің көмегімен бағыт таңдай алады.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Stack: HTML </span>
+                        <span class="tag">CSS </span>
+                        <span class="tag">Flexbox </span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Photo Gallery Section -->
+        <section id="photos" class="fade-in-section min-h-screen p-6 md:p-12 pt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-pink-400 mb-2">
+                    <span class="text-xl align-middle mr-2">📷</span> Фотогалерея
+                </h2>
+                <p class="text-lg text-gray-600">Объектив арқылы сәттерді түсіріп, естеліктер жасаймын</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Photo 1 -->
+                <div class="card p-4 rounded-lg">
+                    <img src="photosS/Sandu11.jpg" alt="Photo 1" class="rounded-lg w-full h-auto">
+                </div>
+                <!-- Photo 2 -->
+                <div class="card p-4 rounded-lg">
+                    <img src="photosS/Sandu12.jpg" alt="Photo 2" class="rounded-lg w-full h-auto">
+                </div>
+                <!-- Photo 3 -->
+                <div class="card p-4 rounded-lg">
+                    <img src="photosS/Sandu13.jpg" alt="Photo 3" class="rounded-lg w-full h-auto">
+                </div>
+                <!-- Photo 4 -->
+                <div class="card p-4 rounded-lg">
+                    <img src="photosS/Sandu14.jpg" alt="Photo 4" class="rounded-lg w-full h-auto">
+                </div>
+                <!-- Photo 5 -->
+                <div class="card p-4 rounded-lg">
+                    <img src="photosS/Sandu1.jpg" alt="Photo 5" class="rounded-lg w-full h-auto">
+                </div>
+                <!-- Photo 6 -->
+                <div class="card p-4 rounded-lg">
+                    <img src="photosS/Sandu3.jpg" alt="Photo 6" class="rounded-lg w-full h-auto">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="fade-in-section min-h-screen p-6 md:p-12 pt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-pink-400 mb-2">Байланыс</h2>
+                <p class="text-lg text-gray-600">Идеяларыңызды жүзеге асыруға дайынсыз ба? Әңгіме бастайық</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row justify-center items-stretch gap-8">
+                <div class="flex flex-col space-y-8 w-full lg:w-1/2">
+                    <!-- Get In Touch Card -->
+                    <div class="card p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-pink-400"></i> Байланыс
+                        </h3>
+                        <ul class="space-y-4 text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-regular fa-envelope text-pink-400"></i>
+                                <span>sandibala.amze@narxoz.kz</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-pink-400"></i>
+                                <span>+7 (555) 123-4567</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot text-pink-400"></i>
+                                <span>Алматы, Қазақстан </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Follow Me Card -->
+                    <div class="card p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Мені бақылаңыз</h3>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://www.instagram.com/sandibalaamze/?igsh=MTYwYWVhenp1MGw5cg%3D%3D" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fa-brands fa-dribbble"></i></a>
+                            <a href="#" class="social-link"><i class="fa-brands fa-behance"></i></a>
+                            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Available for Projects Card -->
+                    <div class="card p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Жобаларға қол жетімді</h3>
+                        <p class="text-gray-600">
+                            Мен қазір фриланс жұмыстарына және қызықты ынтымақтастыққа дайынмын.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Send Message Form -->
+                <div class="card p-8 rounded-lg w-full lg:w-1/2">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                        <i class="fa-regular fa-paper-plane text-pink-400"></i> Хабарлама жіберу
+                    </h3>
+                    <form action="#" method="post" class="space-y-4">
+                        <div>
+                            <label for="name" class="sr-only">Сіздің атыңыз</label>
+                            <input type="text" id="name" name="name" placeholder="Сіздің атыңыз" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-300 transition-colors">
+                        </div>
+                        <div>
+                            <label for="email" class="sr-only">Сіздің Email</label>
+                            <input type="email" id="email" name="email" placeholder="Сіздің Email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-300 transition-colors">
+                        </div>
+                        <div>
+                            <label for="message" class="sr-only">Сіздің хабарламаңыз</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Сіздің хабарламаңыз" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-300 transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn btn-primary flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Хабарлама жіберу
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${entry.target.id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, {
+                rootMargin: '0px 0px -50% 0px'
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            /* New JavaScript for fade-in effect on scroll */
+            const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        sectionObserver.unobserve(entry.target); // Stop observing once it's visible
+                    }
+                });
+            }, {
+                threshold: 0.2 // Trigger when 20% of the section is visible
+            });
+
+            fadeInSections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
